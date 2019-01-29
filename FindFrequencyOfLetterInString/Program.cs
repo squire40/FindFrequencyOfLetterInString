@@ -1,5 +1,7 @@
 ﻿using System.Linq;
 using System;
+using System.ComponentModel;
+using System.Collections.Generic;
 
 namespace FindFrequencyOfLetterInString
 {
@@ -13,16 +15,13 @@ namespace FindFrequencyOfLetterInString
             var letter = Console.ReadLine();
 
             int frequency = FindFrequencyOfLetter(phrase, letter);
-
             Console.WriteLine($"The phrase {phrase} contains the letter {letter} {frequency} times");
             Console.ReadLine();
         }
 
         private static int FindFrequencyOfLetter(string phrase, string letter)
         {
-            var charLetter = Convert.ToChar(letter.ToLower());
-
-            return phrase.ToLower().ToCharArray().Where(c => c == charLetter).Count();
+            return phrase.ToLower().ToCharArray().Where(l => l == Convert.ToChar(letter.ToLower())).Count();
         }
     }
 }
