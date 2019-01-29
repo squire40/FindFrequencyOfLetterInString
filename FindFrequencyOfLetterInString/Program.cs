@@ -22,16 +22,7 @@ namespace FindFrequencyOfLetterInString
         {
             var charLetter = Convert.ToChar(letter.ToLower());
 
-            var count = 0;
-            foreach (var item in phrase.ToLower().ToCharArray())
-            {
-                if (item == charLetter)
-                {
-                    count++;
-                }
-            }
-
-            return count;
+            return phrase.ToLower().ToCharArray().Where(c => c == charLetter).Count();
         }
     }
 }
